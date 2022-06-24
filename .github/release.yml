@@ -11,6 +11,9 @@ changelog:
     - title: Bug fixes 🛠
       labels:
         - bug
+    - title: Refactor
+      labels:
+        - refactor
     - title: Features 🎉
       labels:
         - enhancement
