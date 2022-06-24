@@ -23,5 +23,6 @@ jobs:
         uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          title: "${{ github.event.inputs.app_version }}"
+          automatic_release_tag: "${{ github.event.inputs.app_version }}"
+          title: "v${{ github.event.inputs.app_version }}"
           prerelease: false
