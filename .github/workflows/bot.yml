@@ -50,9 +50,11 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           script: |
-            const teste = await github.rest.repos.getReleaseByTag({
+            const release = await github.rest.repos.getReleaseByTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
               tag: "${{ github.event.inputs.app_version }}"
             })
-            console.log(teste)
+            const body = release.data.body
+            const strings = body.split('\n')
+            console.log(strings)
