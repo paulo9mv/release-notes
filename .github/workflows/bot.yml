@@ -57,4 +57,7 @@ jobs:
             })
             const body = release.data.body
             const strings = body.split('\n')
-            console.log(strings)
+            const prs = strings.filter(i => i.includes('/pull/'))
+            const pr_ids = prs.map(i => i.split('/pull/').pop())
+            const unique_pr_ids = pr_ids.filter((v, i, a) => pr_ids.indexOf(v) === i)
+            console.log(unique_pr_ids)
