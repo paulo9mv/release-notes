@@ -1,3 +1,3 @@
 ### Contributing
 
-Just open a Pull request.
+Just open a Pull request. Now.
