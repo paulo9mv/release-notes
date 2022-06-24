@@ -65,6 +65,6 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: id,
-                body: "This PR has been included in release [${{ github.event.inputs.app_version }}](https://github.com/paulo9mv/release-notes/releases/tag/${{github.event.inputs.app_version}}) 🎉"
+                body: "This PR has been included in version [${{ github.event.inputs.app_version }}](https://github.com/paulo9mv/release-notes/releases/tag/${{github.event.inputs.app_version}}) 🎉"
               })
             })
