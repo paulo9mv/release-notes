@@ -38,4 +38,10 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           script: |
-            console.log(github.rest.repos)
+            github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: "${{ github.event.inputs.app_version }}",
+              name: "${{ github.event.inputs.app_version }}",
+              generate_release_notes: true
+            })
