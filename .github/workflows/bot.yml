@@ -38,5 +38,4 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           script: |
-            console.log(github.rest)
-            console.log(github.repos)
+            console.log(github.rest.repos)
