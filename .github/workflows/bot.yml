@@ -16,8 +16,24 @@ env:
   ENV_1: X
 
 jobs:
+  bump-version:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        > VERSION.md
+        echo "${{ github.event.inputs.app_version }}" > VERSION.md
+        git add .
+        git commit -m "Bump version to ${{ github.event.inputs.app_version }}"
+        git push origin ${GITHUB_REF##*/}
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
+
+
   generate-tag:
     runs-on: ubuntu-latest
+    needs: bump-version
     steps:
       - name: Checkout
         uses: actions/checkout@v3
