@@ -5,3 +5,5 @@ Here we add our test number one. The goal is to create an automated bot that wil
 And here is our test number two. Let's see. New changes are coming.
 
 Test number 3.
+
+This is a fix.
