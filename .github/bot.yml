@@ -1,0 +1,28 @@
+# More documentation here
+# https://docs.github.com/en/actions
+---
+name: Create new release
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_version:
+        description: 'app_version eg: 3.4.1'
+        required: true
+        type: string
+
+env:
+  ENV_1: X
+
+jobs:
+  generate-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git tag ${{ github.event.inputs.app_version }}
+          git push origin ${{ github.event.inputs.app_version }}
