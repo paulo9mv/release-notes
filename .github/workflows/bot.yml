@@ -60,4 +60,11 @@ jobs:
             const prs = strings.filter(i => i.includes('/pull/'))
             const pr_ids = prs.map(i => i.split('/pull/').pop())
             const unique_pr_ids = pr_ids.filter((v, i, a) => pr_ids.indexOf(v) === i)
-            console.log(unique_pr_ids)
+            unique_pr_ids.map(id => {
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: id,
+                body: "This PR has been included in release [${{ github.event.inputs.app_version }}](https://github.com/paulo9mv/release-notes/releases/tag/${{github.event.inputs.app_version}}) 🎉"
+              })
+            })
