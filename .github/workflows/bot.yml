@@ -36,9 +36,10 @@ jobs:
       - name: Create release notes
         uses: actions/github-script@v4.0.2
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
           script: |
             await github.request(`POST /repos/${{ github.repository }}/releases`, {
               tag_name: "${{ github.ref }}",
+              name: "v${{ github.ref }}"
               generate_release_notes: true
             })
