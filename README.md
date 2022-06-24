@@ -7,3 +7,5 @@ And here is our test number two. Let's see. New changes are coming.
 Test number 3.
 
 This is a fix.
+
+This is a refactor.
