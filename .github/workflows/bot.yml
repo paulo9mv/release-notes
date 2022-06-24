@@ -45,3 +45,14 @@ jobs:
               name: "${{ github.event.inputs.app_version }}",
               generate_release_notes: true
             })
+      - name: Get release
+        uses: actions/github-script@v6
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          script: |
+            const teste = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: "${{ github.event.inputs.app_version }}"
+            })
+            console.log(teste)
