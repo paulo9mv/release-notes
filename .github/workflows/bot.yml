@@ -48,6 +48,24 @@ jobs:
           git add .
           git commit -m "Bump version to ${{ github.event.inputs.app_version }}"
           git push origin ${GITHUB_REF##*/}
+  
+  add-branch-protection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add branch protection
+        uses: actions/github-script@v6
+        with:
+          github-token: "${{ secrets.PAT }}"
+          script: |
+            github.rest.repos.updateBranchProtection({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              branch: "main",
+              required_status_checks: null,
+              enforce_admins: null,
+              required_pull_request_reviews: {},
+              restrictions: null,
+            })
 
   generate-tag:
     runs-on: ubuntu-latest
