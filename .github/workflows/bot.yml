@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       app_version:
-        description: 'app_version eg: 3.4.1'
+        description: 'app_version eg: 1.2.3'
         required: true
         type: string
 
