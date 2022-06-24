@@ -38,6 +38,10 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           script: |
+            console.log(github)
+            console.log(github.rest)
+            console.log(github.repos)
+
             github.repos.create_release({
               owner: context.repo.owner,
               repo: context.repo.repo,
