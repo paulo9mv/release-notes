@@ -22,6 +22,6 @@ jobs:
             github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: id,
+                issue_number: 10,
                 body: "This PR has been included in version 🎉"
               })
